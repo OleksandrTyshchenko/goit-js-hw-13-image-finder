@@ -3,6 +3,7 @@ const refs = {
      gallery: document.querySelector('.gallery'),
      loadMoreBtn: document.querySelector('.load-more'),
      spinner: document.querySelector('.spinner'),
+     load: document.querySelector('#load')
      };
 
 export default refs;

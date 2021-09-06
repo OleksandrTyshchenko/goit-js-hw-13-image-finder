@@ -27,13 +27,10 @@ function fetchPhotos() {
         .fetchPhoto()
         .then(({ hits, total }) => {
             updatePhotosMarkup(hits);
+            scrollOnLoadMore();
             switchBtn(total);
-
-            window.scrollTo({
-                top: document.documentElement.offsetHeight,
-                behavior: 'smooth',
-            });
-
+    
+            
             refs.gallery.addEventListener('click', onOpenModal)
         })
         .catch(err => console.log(err))
@@ -98,9 +95,8 @@ function spinnerOff() {
     refs.spinner.classList.add('is-hidden')
 }
 
-// let searchInput = document.querySelector('.input-search');
+function scrollOnLoadMore() {
+    refs.loadMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end',
+  })
+}
 
-
-// searchInput.oninput = function () {
-//     this.value = this.value.replace(regex, "");
-// };
